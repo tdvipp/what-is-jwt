@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>what-is-jwt - Presentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation Hamburger Menu (Top Left) -->
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+  <nav class="menu-nav" id="menu-nav">
+    <a href="#" onclick="goToSlideAndClose(1)">1. Welcome</a>
+    <a href="#" onclick="goToSlideAndClose(2)">2. Solve (Problem)</a>
+    <a href="#" onclick="goToSlideAndClose(3)">3. Solve (Solution)</a>
+    <a href="#" onclick="goToSlideAndClose(4)">4. How does it work?</a>
+    <a href="#" onclick="goToSlideAndClose(5)">5. Header</a>
+    <a href="#" onclick="goToSlideAndClose(6)">6. Payload</a>
+    <a href="#" onclick="goToSlideAndClose(7)">7. Signature</a>
+    <a href="#" onclick="goToSlideAndClose(8)">8. Flow</a>
+    <a href="#" onclick="goToSlideAndClose(9)">9. FAQ</a>
+    <a href="#" onclick="goToSlideAndClose(10)">10. References</a>
+    <a href="#" onclick="goToSlideAndClose(11)">11. Thank You</a>
+  </nav>
+
+  <!-- Slides Container -->
+  <main class="slides-container" id="slides-container">
+
+    <!-- SLIDE 1: Cover -->
+    <section class="slide active" id="slide-1">
+      <div class="slide-card center-slide">
+        <div class="profile-card"
+          style="max-width: 480px; width: 100%; margin: 0 auto; background: none; border: none; box-shadow: none; padding: 0;">
+          <div class="profile-avatar cover-avatar">
+            <img src="avatar.png" alt="Tuan Profile Image">
+          </div>
+          <h2 class="profile-name" style="margin-bottom: 2rem;">Hi, I'm Tuan 👋</h2>
+
+          <a href="https://www.linkedin.com/in/dao-quoc-tuan/" target="_blank" rel="noopener noreferrer"
+            class="btn-linkedin" style="margin-bottom: 2.5rem;">
+            <!-- LinkedIn Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            dao-quoc-tuan
+          </a>
+
+          <div style="border-top: 1px solid #333; padding-top: 2rem; width: 100%;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">what-is-jwt</h1>
+            <p style="font-size: 1.1rem; color: var(--color-text-muted);">JWT is a format of signed strings containing
+              session information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: What does it solve? - Part 1 -->
+    <section class="slide future" id="slide-2">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">Problem</span>
+          <h2>What does it solve?</h2>
+        </div>
+        <div class="slide-body">
+          <p>With traditional session, when user login, there are 2 problems:</p>
+          <ul
+            style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 1rem; color: var(--color-text-muted); font-size: 1.1rem;">
+            <li>Server need to save session's information like: user_id, role, permissions, .etc -> If there are
+              millions of users, we need to save millions of records</li>
+            <li>If we have multiple servers and load balancer, we need to synchronize session between servers.</li>
+          </ul>
+          <p style="margin-top: 1rem; font-style: italic;">-> Let's see how JWT works.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: What does it solve? - Part 2 -->
+    <section class="slide future" id="slide-3">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">Solution</span>
+          <h2>What does it solve?</h2>
+        </div>
+        <div class="slide-body">
+          <div class="highlight-box">
+            <p style="font-size: 1.2rem; line-height: 1.7; color: #ffffff;">JWT is self-contained, all the information
+              is saved in the token. Server doesn't save session's information. When a request comes, server only needs
+              to decode and verify the signature of the token. -> This help system become easier to scale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: How does it work? -->
+    <section class="slide future" id="slide-4">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">Mechanism</span>
+          <h2>How does it work?</h2>
+        </div>
+        <div class="slide-body">
+          <p>JWT - JSON Web Token consists of three parts separated by dots:</p>
+          <ul
+            style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--color-text-muted); font-size: 1.1rem;">
+            <li>Header -> xxx</li>
+            <li>Payload -> yyy</li>
+            <li>Signature -> zzz</li>
+          </ul>
+          <p
+            style="margin-top: 1rem; font-family: var(--font-mono); font-size: 1.3rem; letter-spacing: 0.05em; border: 1px solid #333; padding: 1rem; text-align: center;">
+            -> xxx.yyy.zzz</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Header -->
+    <section class="slide future" id="slide-5">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">Structure</span>
+          <h2>Header</h2>
+        </div>
+        <div class="slide-body">
+          <div class="code-container">
+            <pre>{
+  <span class="token-key">"alg"</span>: <span class="token-string">"HS256"</span>, <span class="token-comment">// Signing algorithm</span>
+  <span class="token-key">"typ"</span>: <span class="token-string">"JWT"</span> <span class="token-comment">// type of the token</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Payload -->
+    <section class="slide future" id="slide-6">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">Structure</span>
+          <h2>Payload</h2>
+        </div>
+        <div class="slide-body">
+          <p>Additional data, an example:</p>
+          <div class="code-container">
+            <pre>{
+  <span class="token-key">"sub"</span>: <span class="token-string">"1234567890"</span>,
+  <span class="token-key">"name"</span>: <span class="token-string">"John Doe"</span>,
+  <span class="token-key">"admin"</span>: <span class="token-boolean">true</span>,
+  <span class="token-key">"exp"</span>: <span class="token-number">8292812948</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Example of signature -->
+    <section class="slide future" id="slide-7">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">Structure</span>
+          <h2>Example of signature</h2>
+        </div>
+        <div class="slide-body">
+          <div class="code-container">
+            <pre>base64UrlEncode(
+  HMACSHA256(
+    base64UrlEncode(header) + <span class="token-string">"."</span> +
+    base64UrlEncode(payload),
+    secret
+  )
+)</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Flow Diagram -->
+    <section class="slide future" id="slide-8">
+      <div class="slide-card">
+        <div class="slide-body">
+          <div class="flow-layout">
+            <div class="flow-img-wrapper">
+              <img src="flow.png" alt="JWT Flow Diagram" class="flow-img">
+            </div>
+
+            <div class="flow-steps">
+              <div class="flow-step">
+                <div class="step-num">1</div>
+                <div class="step-info">
+                  <p>The application or client requests authorization to the authorization server.</p>
+                </div>
+              </div>
+
+              <div class="flow-step">
+                <div class="step-num">2</div>
+                <div class="step-info">
+                  <p>When the authorization is granted, the authorization server returns an access token to the
+                    application.</p>
+                </div>
+              </div>
+
+              <div class="flow-step">
+                <div class="step-num">3</div>
+                <div class="step-info">
+                  <p>The application uses the access token to access a protected resource (like an API).</p>
+                </div>
+              </div>
+
+              <div class="warning-callout">
+                <p>Do note that with signed tokens, all the information contained within the token is exposed to users
+                  or other parties, even though they are unable to change it. This means you should not put secret
+                  information within the token.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: FAQ -->
+    <section class="slide future" id="slide-9">
+      <div class="slide-card">
+        <div class="slide-header">
+          <span class="slide-tag">FAQ</span>
+          <h2>FAQ</h2>
+        </div>
+        <div class="slide-body">
+          <div class="faq-list">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>1. How do we revoke a JWT?</h3>
+                <div class="faq-toggle-icon">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  <p><strong>- Problem:</strong> Because the server is stateless, it cannot easily invalidate a token
+                    before its exp time if use logs out.</p>
+                  <p><strong>- Solution:</strong> Temporarily storing revoked token IDs in a fast in-memory store like
+                    Redis or short exp times.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>2. Where should we store JWTs on the client side?</h3>
+                <div class="faq-toggle-icon">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  <p><strong>- Option 1 (LocalStorage/SessionStorage):</strong> Easy to use but vulnerable to XSS
+                    (Cross-Site Scripting) attacks.</p>
+                  <p><strong>- Option 2 (HttpOnly, Secure Cookies):</strong> Secure against XSS, but requires handling
+                    CSRF (Cross-Site Request Forgery)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: References -->
+    <section class="slide future" id="slide-10">
+      <div class="slide-card">
+        <div class="ref-layout">
+          <span class="slide-tag">References</span>
+          <h2 style="font-size: 3rem; color: #ffffff; margin-bottom: 1rem;">References</h2>
+
+          <div class="ref-links">
+            <a href="https://www.jwt.io/introduction" target="_blank" rel="noopener noreferrer" class="btn-ref">
+              https://www.jwt.io/introduction
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Thank You -->
+    <section class="slide future" id="slide-11">
+      <div class="slide-card center-slide">
+        <h1 style="font-size: 3.5rem; margin-bottom: 2rem; font-weight: 800;">Thank You!</h1>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Slide Counter overlay -->
+  <div class="slide-indicator-bottom" id="slide-indicator-bottom">1/11</div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
