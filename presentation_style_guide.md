@@ -36,8 +36,8 @@ To differentiate elements (such as parts of a token or code structures) without 
   - Info cards & FAQ items: `border-radius: 16px;`
   - Code blocks, warning callouts, menu buttons, and dropdown links: `border-radius: 10px` or `12px;`
   - Circular elements (avatars, step badges, accordion toggles): `border-radius: 50%;`
-- **Slide 1 (Welcome)** & **Slide 11 (Thank You)**: Centered layouts (`.slide-card.center-slide`) with center-aligned text. Slide 1 displays the presenter's avatar (`avatar.png`), name, and social links (flat white container with black text) aligned vertically.
-- **Content Slides (Slide 2 - 10)**: Flexbox or grid systems with left-aligned headings and plain list bullet points.
+- **Slide 1 (Welcome), Slide 2 (Overview), & Slide 12 (Thank You)**: Centered layouts (`.slide-card.center-slide`) with center-aligned text. Slide 1 displays the presenter's avatar (`avatar.png`), name, and social links aligned vertically. Slide 2 displays the agenda topics inside rounded pill blocks (`.overview-pill`, `.overview-dot`, `.overview-text`) matching the reference style.
+- **Content Slides (Slide 3 - 11)**: Flexbox or grid systems with left-aligned headings and plain list bullet points.
 
 ---
 

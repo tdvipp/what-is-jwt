@@ -14,16 +14,17 @@
   <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
   <nav class="menu-nav" id="menu-nav">
     <a href="#" onclick="goToSlideAndClose(1)">1. Welcome</a>
-    <a href="#" onclick="goToSlideAndClose(2)">2. Solve (Problem)</a>
-    <a href="#" onclick="goToSlideAndClose(3)">3. Solve (Solution)</a>
-    <a href="#" onclick="goToSlideAndClose(4)">4. How does it work?</a>
-    <a href="#" onclick="goToSlideAndClose(5)">5. Header</a>
-    <a href="#" onclick="goToSlideAndClose(6)">6. Payload</a>
-    <a href="#" onclick="goToSlideAndClose(7)">7. Signature</a>
-    <a href="#" onclick="goToSlideAndClose(8)">8. Flow</a>
-    <a href="#" onclick="goToSlideAndClose(9)">9. FAQ</a>
-    <a href="#" onclick="goToSlideAndClose(10)">10. References</a>
-    <a href="#" onclick="goToSlideAndClose(11)">11. Thank You</a>
+    <a href="#" onclick="goToSlideAndClose(2)">2. Overview</a>
+    <a href="#" onclick="goToSlideAndClose(3)">3. Solve (Problem)</a>
+    <a href="#" onclick="goToSlideAndClose(4)">4. Solve (Solution)</a>
+    <a href="#" onclick="goToSlideAndClose(5)">5. How does it work?</a>
+    <a href="#" onclick="goToSlideAndClose(6)">6. Header</a>
+    <a href="#" onclick="goToSlideAndClose(7)">7. Payload</a>
+    <a href="#" onclick="goToSlideAndClose(8)">8. Signature</a>
+    <a href="#" onclick="goToSlideAndClose(9)">9. Flow</a>
+    <a href="#" onclick="goToSlideAndClose(10)">10. FAQ</a>
+    <a href="#" onclick="goToSlideAndClose(11)">11. References</a>
+    <a href="#" onclick="goToSlideAndClose(12)">12. Thank You</a>
   </nav>
 
   <!-- Slides Container -->
@@ -32,13 +33,12 @@
     <!-- SLIDE 1: Cover -->
     <section class="slide active" id="slide-1">
       <div class="slide-card center-slide">
-        <div class="profile-card"
-          style="max-width: 480px; width: 100%; margin: 0 auto; background: none; border: none; box-shadow: none; padding: 0;">
+        <div class="profile-card" style="max-width: 480px; width: 100%; margin: 0 auto; background: none; border: none; box-shadow: none; padding: 0;">
           <div class="profile-avatar cover-avatar">
             <img src="avatar.png" alt="Tuan Profile Image">
           </div>
           <h2 class="profile-name" style="margin-bottom: 2rem;">Hi, I'm Tuan 👋</h2>
-
+          
           <a href="https://www.linkedin.com/in/dao-quoc-tuan/" target="_blank" rel="noopener noreferrer"
             class="btn-linkedin" style="margin-bottom: 2.5rem;">
             <!-- LinkedIn Icon SVG -->
@@ -51,15 +51,32 @@
 
           <div style="border-top: 1px solid #333; padding-top: 2rem; width: 100%;">
             <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">what-is-jwt</h1>
-            <p style="font-size: 1.1rem; color: var(--color-text-muted);">JWT is a format of signed strings containing
-              session information.</p>
+            <p style="font-size: 1.1rem; color: var(--color-text-muted);">JWT is a format of signed strings containing session information.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 2: What does it solve? - Part 1 -->
+    <!-- SLIDE 2: JWT (Overview) -->
     <section class="slide future" id="slide-2">
+      <div class="slide-card center-slide">
+        <h1 style="font-size: 3.5rem; margin-bottom: 3rem; font-weight: 800;">JWT</h1>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+          <div class="overview-pill">
+            <span class="overview-dot"></span>
+            <span class="overview-text">What does it solve?</span>
+          </div>
+          <div class="overview-pill">
+            <span class="overview-dot"></span>
+            <span class="overview-text">How does it work?</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: What does it solve? - Part 1 -->
+    <section class="slide future" id="slide-3">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">Problem</span>
@@ -67,10 +84,8 @@
         </div>
         <div class="slide-body">
           <p>With traditional session, when user login, there are 2 problems:</p>
-          <ul
-            style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 1rem; color: var(--color-text-muted); font-size: 1.1rem;">
-            <li>Server need to save session's information like: user_id, role, permissions, .etc -> If there are
-              millions of users, we need to save millions of records</li>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 1rem; color: var(--color-text-muted); font-size: 1.1rem;">
+            <li>Server need to save session's information like: user_id, role, permissions, .etc -> If there are millions of users, we need to save millions of records</li>
             <li>If we have multiple servers and load balancer, we need to synchronize session between servers.</li>
           </ul>
           <p style="margin-top: 1rem; font-style: italic;">-> Let's see how JWT works.</p>
@@ -78,8 +93,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 3: What does it solve? - Part 2 -->
-    <section class="slide future" id="slide-3">
+    <!-- SLIDE 4: What does it solve? - Part 2 -->
+    <section class="slide future" id="slide-4">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">Solution</span>
@@ -87,16 +102,14 @@
         </div>
         <div class="slide-body">
           <div class="highlight-box">
-            <p style="font-size: 1.2rem; line-height: 1.7; color: #ffffff;">JWT is self-contained, all the information
-              is saved in the token. Server doesn't save session's information. When a request comes, server only needs
-              to decode and verify the signature of the token. -> This help system become easier to scale.</p>
+            <p style="font-size: 1.2rem; line-height: 1.7; color: #ffffff;">JWT is self-contained, all the information is saved in the token. Server doesn't save session's information. When a request comes, server only needs to decode and verify the signature of the token. -> This help system become easier to scale.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: How does it work? -->
-    <section class="slide future" id="slide-4">
+    <!-- SLIDE 5: How does it work? -->
+    <section class="slide future" id="slide-5">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">Mechanism</span>
@@ -104,21 +117,18 @@
         </div>
         <div class="slide-body">
           <p>JWT - JSON Web Token consists of three parts separated by dots:</p>
-          <ul
-            style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--color-text-muted); font-size: 1.1rem;">
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--color-text-muted); font-size: 1.1rem;">
             <li>Header -> xxx</li>
             <li>Payload -> yyy</li>
             <li>Signature -> zzz</li>
           </ul>
-          <p
-            style="margin-top: 1rem; font-family: var(--font-mono); font-size: 1.3rem; letter-spacing: 0.05em; border: 1px solid #333; padding: 1rem; text-align: center;">
-            -> xxx.yyy.zzz</p>
+          <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 1.3rem; letter-spacing: 0.05em; border: 1px solid #333; padding: 1rem; text-align: center;">-> xxx.yyy.zzz</p>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 5: Header -->
-    <section class="slide future" id="slide-5">
+    <!-- SLIDE 6: Header -->
+    <section class="slide future" id="slide-6">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">Structure</span>
@@ -135,8 +145,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 6: Payload -->
-    <section class="slide future" id="slide-6">
+    <!-- SLIDE 7: Payload -->
+    <section class="slide future" id="slide-7">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">Structure</span>
@@ -156,8 +166,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 7: Example of signature -->
-    <section class="slide future" id="slide-7">
+    <!-- SLIDE 8: Example of signature -->
+    <section class="slide future" id="slide-8">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">Structure</span>
@@ -177,8 +187,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 8: Flow Diagram -->
-    <section class="slide future" id="slide-8">
+    <!-- SLIDE 9: Flow Diagram -->
+    <section class="slide future" id="slide-9">
       <div class="slide-card">
         <div class="slide-body">
           <div class="flow-layout">
@@ -197,8 +207,7 @@
               <div class="flow-step">
                 <div class="step-num">2</div>
                 <div class="step-info">
-                  <p>When the authorization is granted, the authorization server returns an access token to the
-                    application.</p>
+                  <p>When the authorization is granted, the authorization server returns an access token to the application.</p>
                 </div>
               </div>
 
@@ -210,9 +219,7 @@
               </div>
 
               <div class="warning-callout">
-                <p>Do note that with signed tokens, all the information contained within the token is exposed to users
-                  or other parties, even though they are unable to change it. This means you should not put secret
-                  information within the token.</p>
+                <p>Do note that with signed tokens, all the information contained within the token is exposed to users or other parties, even though they are unable to change it. This means you should not put secret information within the token.</p>
               </div>
             </div>
           </div>
@@ -220,8 +227,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 9: FAQ -->
-    <section class="slide future" id="slide-9">
+    <!-- SLIDE 10: FAQ -->
+    <section class="slide future" id="slide-10">
       <div class="slide-card">
         <div class="slide-header">
           <span class="slide-tag">FAQ</span>
@@ -273,13 +280,13 @@
       </div>
     </section>
 
-    <!-- SLIDE 10: References -->
-    <section class="slide future" id="slide-10">
+    <!-- SLIDE 11: References -->
+    <section class="slide future" id="slide-11">
       <div class="slide-card">
         <div class="ref-layout">
           <span class="slide-tag">References</span>
           <h2 style="font-size: 3rem; color: #ffffff; margin-bottom: 1rem;">References</h2>
-
+          
           <div class="ref-links">
             <a href="https://www.jwt.io/introduction" target="_blank" rel="noopener noreferrer" class="btn-ref">
               https://www.jwt.io/introduction
@@ -289,17 +296,17 @@
       </div>
     </section>
 
-    <!-- SLIDE 11: Thank You -->
-    <section class="slide future" id="slide-11">
+    <!-- SLIDE 12: Thank You -->
+    <section class="slide future" id="slide-12">
       <div class="slide-card center-slide">
-        <h1 style="font-size: 3.5rem; margin-bottom: 2rem; font-weight: 800;">Thank You!</h1>
+        <h1 style="font-size: 3.5rem; font-weight: 800; margin: 0;">Thank You!</h1>
       </div>
     </section>
 
   </main>
 
   <!-- Bottom Slide Counter overlay -->
-  <div class="slide-indicator-bottom" id="slide-indicator-bottom">1/11</div>
+  <div class="slide-indicator-bottom" id="slide-indicator-bottom">1/12</div>
 
   <script src="script.js"></script>
 </body>
